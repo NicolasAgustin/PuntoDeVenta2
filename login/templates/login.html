@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ingresar</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="bg-image" 
+            style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+            height: 100vh">
+
+            <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 800px">
+                <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 25rem;">
+                    <div class="card-body">
+                        <h2 class="card-title">Iniciar sesion</h2>
+                        <form action="/login" method="post">
+                            {% bootstrap_form_errors form fields %}
+                            {% csrf_token %}
+                
+                            {% bootstrap_form form %}
+                            {% buttons %}
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">
+                                    Ingresar
+                                </button>
+                            </div>
+                            {% endbuttons %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
