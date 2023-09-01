@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventas</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %} <!-- se carga siempre todo lo que tenemos en la carpeta static -->
+
+{% block content %}
+<div>
     <h1>Hola mundo, este es mi primer punto de ventas, estoy en ventas</h1>
-</body>
-</html>
+    <h2>El numero de ventas actuales es de: {{num_ventas}}</h2>
+</div>
+{% endblock %}
