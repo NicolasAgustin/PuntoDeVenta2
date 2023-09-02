@@ -51,7 +51,7 @@
                 <form method="POST" action="{% url 'EditCliente' %}" enctype="multipart/form-data">{% csrf_token %}
                     <input type="hidden" id="id_personal_editar" name="id_personal_editar">
                     {% for field in form_editar %}
-                    <p> {{field.label}} <br>
+                    <p> {{field.id}} {{field.label}} <br>
                         {{field|add_class:"form-control"}}</p>
                     {% for error in field.errors %}
                     <p class="alarma">{{error}}</p>
@@ -143,6 +143,13 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $("#EditarPersonalModal").on("show.bs.modal", function () {
+            console.log("aca")
+        })
+    })
+</script>
 {% if messages %}
 {% for message in messages %}
 <script>

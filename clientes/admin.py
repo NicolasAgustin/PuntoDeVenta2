@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ventas.models import Cliente, Producto
+from clientes.models import Cliente, Producto
 
 # Register your models here.
 class ClienteAdmin(admin.ModelAdmin):
