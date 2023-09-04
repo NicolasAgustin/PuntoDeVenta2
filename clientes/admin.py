@@ -5,8 +5,7 @@ from clientes.models import Cliente, Producto
 class ClienteAdmin(admin.ModelAdmin):
 	list_display=('nombre', 'telefono', 'codigo')
 	search_fields=['nombre']
-	#readonly_fields=('created','updated') ME DA ERRO ACA
-	#TODO
+	readonly_fields=('created','updated')
 	filter_horizontal= ()
 	list_filter=()
 	fieldsets=()
@@ -16,7 +15,7 @@ admin.site.register(Cliente, ClienteAdmin)
 class ProductoAdmin(admin.ModelAdmin):
 	list_display=('descripcion', 'cantidad', 'costo')
 	search_fields=['descripcion']
-	readonly_fields=('created', 'updated') 
+	readonly_fields=('created', 'updated')
 	filter_horizontal= ()
 	list_filter=()
 	fieldsets=()

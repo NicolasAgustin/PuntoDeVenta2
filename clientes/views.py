@@ -30,7 +30,6 @@ def add_cliente_view(request):
 	return redirect('Clientes')
 
 
-#TODO Al editar un cliente no se visualiza la informacion actual, pero si podes editarlo.
 def edit_cliente_view(request):
 	if request.POST:
 		cliente=Cliente.objects.get(pk=request.POST.get('id_personal_editar'))
