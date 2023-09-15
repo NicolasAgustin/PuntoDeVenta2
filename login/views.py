@@ -16,6 +16,8 @@ def login(request: HttpRequest):
             request, username=login_form.username, password=login_form.password
         )
 
+        # TODO: Agregar redirect
+
         if not user:
             login_form.add_error("username", "Usuario o contrasena incorrecta")
             login_form.add_error("password", "")

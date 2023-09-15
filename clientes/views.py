@@ -1,7 +1,3 @@
-
-from pyexpat.errors import messages 
-
-
 from django.shortcuts import render, redirect
 
 from clientes.models import Cliente, Producto
@@ -27,7 +23,7 @@ def add_cliente_view(request):
 		try:
 			form.save()
 		except:
-			messages(request, "Error al guardar el cliente")
+			# messages(request, "Error al guardar el cliente")
 			return redirect('Clientes')
 	return redirect('Clientes')
 
@@ -65,7 +61,8 @@ def add_producto_view(request):
 	if form.is_valid:
 		try:
 			form.save()
-		except:
-			messages(request, "Error al guardar el Producto")
+		except Exception as ex:
+			# TODO: Agregar mensajes de error para el formulario
+			# messages(request, "Error al guardar el Producto")
 			return redirect('Productos')
 	return redirect('Productos')
