@@ -1,5 +1,5 @@
 from django import forms
-from clientes.models import Cliente
+from clientes.models import Cliente, Producto
 
 
 class AddClienteForm(forms.ModelForm):
@@ -28,11 +28,20 @@ class EditarClienteForm(forms.ModelForm):
 			'telefono': 'Telefono: (Contacto): '
 		}
 
-	# widgets = {
-	# 	'codigo':forms.TextInput(attrs={'type': 'text', 'id': 'codigo_editar'}),
-	# 	'nombre': forms.TextInput(attrs={'id': 'nombre_editar'}),
-	# 	'telefono': forms.TextInput(attrs={'id': 'telefono_editar'}),
-	# }
+	
+
+class AddProductoForm(forms.ModelForm):
+	class Meta:
+		model=Producto
+		fields=('codigo', 'descripcion', 'imagen', 'costo', 'precio', 'cantidad')
+		labels={
+			'codigo': 'Cód Barras: ',
+			'descripcion': 'Descripcion de producto: ',
+			'imagen': 'Imagen: ',
+			'costo': 'Costo $: ',
+			'precio': 'Precio $: ',
+			'cantidad': 'Cantidad: ',
+			}
 	
 #class EditarClienteForm(forms.ModelForm):
 	#class Meta:

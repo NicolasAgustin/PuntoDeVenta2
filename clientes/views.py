@@ -1,9 +1,11 @@
 
-from pyexpat.errors import messages
+from pyexpat.errors import messages 
+
+
 from django.shortcuts import render, redirect
 
-from clientes.models import Cliente
-from clientes.forms import AddClienteForm, EditarClienteForm
+from clientes.models import Cliente, Producto
+from clientes.forms import AddClienteForm, EditarClienteForm, AddProductoForm
 
 
 def clientes_view(request):
@@ -30,7 +32,6 @@ def add_cliente_view(request):
 	return redirect('Clientes')
 
 
-#TODO Al editar un cliente no se visualiza la informacion actual, pero si podes editarlo.
 def edit_cliente_view(request):
 	if request.POST:
 		cliente=Cliente.objects.get(pk=request.POST.get('id_personal_editar'))
@@ -46,3 +47,25 @@ def delete_cliente_view(request):
 		cliente=Cliente.objects.get(pk=request.POST.get('id_personal_eliminar'))
 		cliente.delete()
 	return redirect('Clientes')
+
+def productos_view(request):
+	# clientes = Cliente.objects.all()
+	# form_editar = EditarClienteForm()
+	productos = Producto.objects.all()
+	form_add = AddProductoForm()
+	context = {
+		'productos':productos,
+		'form_add':form_add
+	}
+	return render(request, 'productos.html', context)
+
+def add_producto_view(request):
+	if request.POST:
+		form=AddProductoForm(request.POST, request.FILES)
+	if form.is_valid:
+		try:
+			form.save()
+		except:
+			messages(request, "Error al guardar el Producto")
+			return redirect('Productos')
+	return redirect('Productos')

@@ -8,3 +8,5 @@ def ventas_view(request):
 	'num_ventas': num_ventas
 	}
 	return render(request, 'ventas.html',context)
+
+
