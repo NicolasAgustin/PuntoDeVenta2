@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 
 #from pyexpat.errors import messages 
 
 
+=======
+>>>>>>> f2a4d0fd0e438eab85e7336a24e4819aae178967
 from django.shortcuts import render, redirect
 
 from clientes.models import Cliente, Producto, Egreso, ProductosEgreso
@@ -35,7 +38,11 @@ def add_cliente_view(request):
 		try:
 			form.save()
 		except:
+<<<<<<< HEAD
 			#messages(request, "Error al guardar el cliente")
+=======
+			# messages(request, "Error al guardar el cliente")
+>>>>>>> f2a4d0fd0e438eab85e7336a24e4819aae178967
 			return redirect('Clientes')
 	return redirect('Clientes')
 
@@ -74,8 +81,13 @@ def add_producto_view(request):
 		try:
 			form.save()
 		except Exception as ex:
+<<<<<<< HEAD
 			#TODO agregar mensaje de error
 			#messages(request, "Error al guardar el Producto")
+=======
+			# TODO: Agregar mensajes de error para el formulario
+			# messages(request, "Error al guardar el Producto")
+>>>>>>> f2a4d0fd0e438eab85e7336a24e4819aae178967
 			return redirect('Productos')
 	return redirect('Productos')
 

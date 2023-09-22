@@ -28,7 +28,6 @@ class EditarClienteForm(forms.ModelForm):
 			'telefono': 'Telefono: (Contacto): '
 		}
 
-	
 
 class AddProductoForm(forms.ModelForm):
 	class Meta:
