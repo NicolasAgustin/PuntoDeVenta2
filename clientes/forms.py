@@ -1,5 +1,5 @@
 from django import forms
-from clientes.models import Cliente, Producto
+from clientes.models import Cliente
 
 
 class AddClienteForm(forms.ModelForm):
@@ -29,19 +29,6 @@ class EditarClienteForm(forms.ModelForm):
 		}
 
 
-class AddProductoForm(forms.ModelForm):
-	class Meta:
-		model=Producto
-		fields=('codigo', 'descripcion', 'imagen', 'costo', 'precio', 'cantidad')
-		labels={
-			'codigo': 'Cód Barras: ',
-			'descripcion': 'Descripcion de producto: ',
-			'imagen': 'Imagen: ',
-			'costo': 'Costo $: ',
-			'precio': 'Precio $: ',
-			'cantidad': 'Cantidad: ',
-			}
-	
 #class EditarClienteForm(forms.ModelForm):
 	#class Meta:
 		#imagen=forms.ImageField()

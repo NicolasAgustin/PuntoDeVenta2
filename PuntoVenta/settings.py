@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "clientes",
     "ventas",
     "login",
+    "productos",
     "jquery",
     "bootstrap5",
     "widget_tweaks"
